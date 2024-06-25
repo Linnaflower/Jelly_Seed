@@ -22,7 +22,7 @@ body{
 }
 
 .container{
-    position: relative;
+    position: absolute;
     width: 400px;
     height: 555px;
     background: rgba(255, 255, 255, .5);
@@ -31,6 +31,7 @@ body{
     border-radius: 16px;
     padding: 20px;
     color: black;
+    transition: .6s ease;
 }
 
 .search-box{
@@ -87,8 +88,22 @@ body{
     margin: 40px 0px;
 }
 
+.weather-box, 
+.weather-details,
+.not-found {
+    visibility: hidden;
+}
+
+.weather-box.active, 
+.weather-details.active,
+.not-found.active {
+    visibility: visible;
+}
+
+
 .weather-box img{
-    width: 60%;
+    width: 65%;
+    margin: -30px 0px 5px 0px;
 }
 
 .weather-box .temperature{
@@ -155,4 +170,23 @@ body{
 .weather-details p{
     font-size: 14px;
     font-weight: 400;
+}
+/* ########## ERROR HANDLING ######################## */
+
+.not-found{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    text-align: center;
+    margin-top: 110px;
+}
+
+.not-found img{
+    width: 50%;   
+}
+
+.not-found p{
+    font-size: 25px;
+    font-weight: 700;
 }
