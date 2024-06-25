@@ -39,6 +39,7 @@ search.addEventListener('click', () => {
 
             if (json.cod === '404'){
                 container.style.height = '400px';
+                container.classList.remove('active');
                 weatherBox.classList.remove('active');
                 weatherDetails.classList.remove('active');
                 error.classList.add('active');
@@ -46,6 +47,12 @@ search.addEventListener('click', () => {
             }
 
             container.style.height = '555px';
+            container.classList.add('active');
+
+            setTimeout(() => {
+                container.classList.remove('active');
+            }, 2500);
+
             weatherBox.classList.add('active');
             weatherDetails.classList.add('active');
             error.classList.remove('active');
@@ -81,7 +88,7 @@ search.addEventListener('click', () => {
                     image.src = 'images/cloudy.png';
                     break;
             }
-            
+
             temperature.innerHTML =`${parseInt(json.main.temp)}<span>°F</span>`;
             description.innerHTML =`${json.weather[0].description}`;
             humidity.innerHTML =`${json.main.humidity}%`;
